@@ -48,13 +48,22 @@ public class Util {
                         break;
                     case 3:
                         removerB();
-                        break;
                 }
             }
         }while (opcao != 4);
     }
 
+    // método para remover um bilhete a partir de um cpf
     private void removerB() {
+        int resposta;
+        int posicao = pesquisar();
+        if(posicao != -1){
+            resposta = showConfirmDialog(null, "Tem certeza que deseja remover o bilhete? :(");
+            if (resposta == YES_OPTION){
+                index--;
+                bilhete[posicao] = bilhete[index];
+            }
+        }
     }
 
     // método para emitir um bilhete --> gerar um objeto e armazenar no vetor
